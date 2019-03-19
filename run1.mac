@@ -1,0 +1,5 @@
+# Macro file for the Sampling Calorimeter Exercise
+#
+/gun/particle kaon+
+/gun/energy 500 MeV
+/run/beamOn 550
