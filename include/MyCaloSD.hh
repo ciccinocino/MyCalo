@@ -18,17 +18,17 @@ class G4HCofThisEvent;
 class MyCaloSD : public G4VSensitiveDetector
 {
 public:
-  MyCaloSD(const G4String& name,const G4String& hitsCollectionName,G4int nofCells);
-  virtual ~MyCaloSD();
-  
-  // methods from base class
-  virtual void Initialize(G4HCofThisEvent* hitCollection);
-  virtual G4bool ProcessHits(G4Step* step, G4TouchableHistory* history);
-  virtual void EndOfEvent(G4HCofThisEvent* hitCollection);
-  
+MyCaloSD(const G4String& name,const G4String& hitsCollectionName,G4int nofCells);
+virtual ~MyCaloSD();
+
+// methods from base class
+virtual void Initialize(G4HCofThisEvent* hitCollection);
+virtual G4bool ProcessHits(G4Step* step, G4TouchableHistory* history);
+virtual void EndOfEvent(G4HCofThisEvent* hitCollection);
+
 private:
-  MyCaloHitsCollection* fHitsCollection;
-  G4int  fNofCells;
+MyCaloHitsCollection* fHitsCollection;
+G4int fNofCells;
 };
 
 #endif
