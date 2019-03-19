@@ -13,7 +13,7 @@ cmake -DGeant4_DIR=/path/to/geant4 ..
 ```
 Once done, compile with:
 ```
-make
+make [-jN]  
 ```
 To run the program, simply launch:
 ```
