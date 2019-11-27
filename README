@@ -5,7 +5,7 @@ First, create and navigate into a build directory:
     $ cd build/
 
 Then, to check if the requested tools are available,
-and to copy the files into the directory, execute:
+and to copy the files into the build directory, execute:
 
     $ cmake -DGeant4_DIR=/path/to/geant4 ..
 

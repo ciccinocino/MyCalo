@@ -25,12 +25,12 @@ MyCaloRunAction::MyCaloRunAction() : G4UserRunAction(){
         // Book histograms, ntuple
 
         // Creating histograms
-        G4double energy = 150.0*GeV; // Energia del fascio (in GeV)
-        G4double res = 0.5*GeV; // Sensibilità in energia (in GeV)
-        G4int bin  = energy/res;// Numero di bin
-        G4double lenXY = 55.*cm;
-        G4double lenZ = 150.*cm;
-        G4double lenRes = 1.*cm;
+        G4double energy = 150.0*GeV; // Beam energy (GeV)
+        G4double res = 0.1*GeV; // Energy sensitivity (in GeV)
+        G4int bin  = energy/res; // Bin number
+        G4double lenXY = 55.0*cm;
+        G4double lenZ = 150.0*cm;
+        G4double lenRes = 1.0*cm;
         G4int lenBinXY = 2*lenXY/lenRes;
         G4int lenBinZ = 2*lenZ/lenRes;
         analysisManager->CreateH1("Eabs","Edep in absorber", bin, 0.*GeV, energy,"GeV");
@@ -58,7 +58,7 @@ MyCaloRunAction::~MyCaloRunAction(){
         delete G4AnalysisManager::Instance();
 }
 
-void MyCaloRunAction::BeginOfRunAction(const G4Run* /*run*/){
+void MyCaloRunAction::BeginOfRunAction(const G4Run* run){
         //inform the runManager to save random number seed
         //G4RunManager::GetRunManager()->SetRandomNumberStore(true);
 

@@ -62,7 +62,7 @@ G4VPhysicalVolume* MyCaloDetectorConstruction::DefineVolumes(){
         //Active material layer thickness
         G4double gapThickness =  0.5*cm;
         //Absorber material layer thickness
-        G4double absoThickness = 5*cm;//ratio*gapThickness;
+        G4double absoThickness = 5.0*cm;//ratio*gapThickness;
         //Width containing 99% of the energy of a 150 GeV shower (Fernow)
         G4double caloSizeXY  = (-17.3+14.3*log(maxEnergy))*cm;
         //Active material nuclear interaction length
@@ -119,7 +119,7 @@ G4VPhysicalVolume* MyCaloDetectorConstruction::DefineVolumes(){
         //Logical Volume
         auto absorberLV = new G4LogicalVolume(absorberS, absorberMaterial, "AbsoLV");
         //Physical Volume
-        new G4PVPlacement(0, G4ThreeVector(0., 0., absoThickness/2), absorberLV, "Absorber", layerLV, false, 0, fCheckOverlaps);
+        new G4PVPlacement(0, G4ThreeVector(0., 0., -layerThickness/2 +absoThickness/2), absorberLV, "Absorber", layerLV, false, 0, fCheckOverlaps);
 
         //Active Material
         //Solid
@@ -127,7 +127,7 @@ G4VPhysicalVolume* MyCaloDetectorConstruction::DefineVolumes(){
         //Logical Volume
         auto gapLV = new G4LogicalVolume(gapS, gapMaterial, "GapLV");
         //Physical Volume
-        new G4PVPlacement(0, G4ThreeVector(0., 0., -gapThickness/2), gapLV, "Gap", layerLV, false, 0, fCheckOverlaps);
+        new G4PVPlacement(0, G4ThreeVector(0., 0., absoThickness -layerThickness/2 + gapThickness/2), gapLV, "Gap", layerLV, false, 0, fCheckOverlaps);
 
         //print parameters
         G4cout
