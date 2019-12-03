@@ -27,4 +27,4 @@ out to avoid overcrowding the screen.
 Alternatively, it is possible to immediately
 start the simulation with a predefined macro, with the command:
 
-    $ ./MyCalo run1.mac
+    $ ./MyCalo run.mac

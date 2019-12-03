@@ -42,14 +42,18 @@ target_link_libraries(MyCalo ${Geant4_LIBRARIES})
 # build. This is so that we can run the executable directly because it
 # relies on these scripts being in the current working directory.
 #
-set(EXAMPLEB4C_SCRIPTS
+set(MYCALO_SCRIPTS
+  run.mac
   run1.mac
+  run2.mac
+  run3.mac
+  run4.mac
   init_vis.mac
   vis.mac
   gui.mac
   )
 
-foreach(_script ${EXAMPLEB4C_SCRIPTS})
+foreach(_script ${MYCALO_SCRIPTS})
   configure_file(
     ${PROJECT_SOURCE_DIR}/${_script}
     ${PROJECT_BINARY_DIR}/${_script}
