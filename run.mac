@@ -1,0 +1,6 @@
+# Macro file for MyCalo
+#
+/analysis/setFileName MyCalo.root
+/gun/particle kaon+
+/gun/energy 50 GeV
+/run/beamOn 50

@@ -28,18 +28,19 @@ MyCaloRunAction::MyCaloRunAction() : G4UserRunAction(){
   G4double energy = 150.0*GeV; // max beam energy (GeV)
   G4double res = 0.1*GeV; // energy sensitivity (in GeV)
   G4int binE  = energy/res; // energy bins number
-  G4double lenXY = 55.0*cm; // half width in x and y direction
+  G4double lenXY = 10.0*cm; // half width in x and y direction
   G4double lenZ = 150.0*cm; // half length in z direction
-  G4double lenRes = 0.5*cm;
-  G4int binXY = 2*lenXY/lenRes;
-  G4int binZ = lenZ/lenRes;
+  G4double lenResXY = 0.25*cm;
+  G4double lenResZ = 1.0*cm;
+  G4int binXY = 2*lenXY/lenResXY;
+  G4int binZ = lenZ/lenResZ;
   analysisManager->CreateH1("Eabs","Edep in absorber", binE, 0.0, energy,"GeV");
   analysisManager->SetH1XAxisTitle(0,"E [GeV]");
   analysisManager->CreateH1("Egap","Edep in gap", binE, 0.0, energy,"GeV");
   analysisManager->SetH1XAxisTitle(1,"E [GeV]");
-  analysisManager->CreateH1("X","X in detector", binXY,-lenXY,lenXY,"cm");
+  analysisManager->CreateH1("X","X in detector", binXY, -lenXY, lenXY,"cm");
   analysisManager->SetH1XAxisTitle(2,"X [cm]");
-  analysisManager->CreateH1("Y","Y in detector", binXY,-lenXY,lenXY,"cm");
+  analysisManager->CreateH1("Y","Y in detector", binXY, -lenXY, lenXY,"cm");
   analysisManager->SetH1XAxisTitle(3,"Y [cm]");
   analysisManager->CreateH1("Z","Z in detector", binZ, -lenZ/2, lenZ/2,"cm");
   analysisManager->SetH1XAxisTitle(4,"Z [cm]");

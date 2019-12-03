@@ -1,14 +1,4 @@
-# Macro file for MyCalo
-#
-/analysis/setFileName MyCalo.root
+/analysis/setFileName MyCalo1.root
 /gun/particle kaon+
-/gun/energy 50 GeV
-/run/beamOn 100
-
-#/analysis/setFileName Calo_100.root
-#/gun/energy 100 GeV
-#/run/beamOn 10
-
-#/analysis/setFileName Calo_150.root
-#/gun/energy 150 GeV
-#/run/beamOn 10
+/gun/energy 100 GeV
+/run/beamOn 2
