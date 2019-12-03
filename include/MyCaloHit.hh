@@ -63,9 +63,9 @@ inline void MyCaloHit::operator delete(void *hit){
 
 inline void MyCaloHit::Add(G4double de, G4double dposX, G4double dposY, G4double dposZ){
         fEdep += de;
-        fPosX += dposX;//*de;
-        fPosY += dposY;//*de;
-        fPosZ += dposZ;//*de;
+        fPosX += dposX*de;
+        fPosY += dposY*de;
+        fPosZ += dposZ*de;
 }
 
 inline void MyCaloHit::Add(G4double de){

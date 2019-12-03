@@ -58,23 +58,25 @@ G4VPhysicalVolume* MyCaloDetectorConstruction::DefineVolumes(){
 
         //Maximum shower energy (GeV)
         G4double maxEnergy = 150;
+
         //Geometrical parameters
         //Active material layer thickness
         G4double gapThickness =  0.5*cm;
-        //Absorber material layer thickness
-        G4double absoThickness = 5.0*cm;//ratio*gapThickness;
-        //Width containing 99% of the energy of a 150 GeV shower (Fernow)
-        G4double caloSizeXY  = (-17.3+14.3*log(maxEnergy))*cm;
+	//Absorber material layer thickness
+        G4double absoThickness = 2.0*cm;
         //Active material nuclear interaction length
         G4double gapNucLength = gapMaterial->GetNuclearInterLength();
         cout << "Gap interaction length: " << gapNucLength/cm << " cm" << endl;
         //Absorber material nuclear interaction length
         G4double absoNucLength = absorberMaterial->GetNuclearInterLength();
         cout << "Absorber interaction length: " << absoNucLength/cm << " cm" << endl;
-        //Mean nuclear interaction length
-        G4double layerNucLength = (gapThickness/gapNucLength + absoThickness/absoNucLength);///(gapThickness + absoThickness);
+	//Mean nuclear interaction length
+        G4double layerNucLength = (gapThickness/gapNucLength + absoThickness/absoNucLength);
         G4cout << "Each layer makes " << layerNucLength << " interaction lengths" << G4endl;
-        //Length containing 90% of the energy of a 150 GeV shower (Fernow)
+	
+	//Width containing 99% of the energy of a 150 GeV shower (Fernow)
+        G4double caloSizeXY  = (-17.3+14.3*log(maxEnergy))*cm;
+	//Length containing 90% of the energy of a 150 GeV shower (Fernow)
         G4double totalNucLength = (-1.26 + 1.74*log(maxEnergy));
         G4cout << "Total radiation lengths: " << totalNucLength << G4endl;
 
@@ -85,10 +87,10 @@ G4VPhysicalVolume* MyCaloDetectorConstruction::DefineVolumes(){
         //Total calorimeter thickness
         G4double caloThickness = fNofLayers * layerThickness;
         //World transverse size
-        auto worldSizeXY = 1.1 * caloSizeXY;
+        G4double worldSizeXY = 1.1 * caloSizeXY;
         //World length
-        auto worldSizeZ  = 1.1 * caloThickness;
-
+        G4double worldSizeZ  = 1.1 * caloThickness;
+	
         //World
         //Solid
         auto worldS = new G4Box("World", worldSizeXY/2, worldSizeXY/2, worldSizeZ/2);
