@@ -1,4 +1,4 @@
 /analysis/setFileName MyCalo4.root
 /gun/particle kaon+
 /gun/energy 145 GeV
-/run/beamOn 2
+/run/beamOn 3000

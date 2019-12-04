@@ -51,6 +51,7 @@ set(MYCALO_SCRIPTS
   init_vis.mac
   vis.mac
   gui.mac
+  run_simulation.sh
   )
 
 foreach(_script ${MYCALO_SCRIPTS})

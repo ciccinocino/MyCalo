@@ -1,6 +1,5 @@
 #!/bin/bash
 for i in $(seq 1 4)
 do
-    ./MyCalo run$i.mac 2>&1 | tee MyCalo$i.log
+    (time ./MyCalo run$i.mac) > MyCalo$i.log 2>&1
 done
-echo "Finito"

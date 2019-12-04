@@ -26,7 +26,7 @@ MyCaloRunAction::MyCaloRunAction() : G4UserRunAction(){
 
   // Creating histograms
   G4double energy = 150.0*GeV; // max beam energy (GeV)
-  G4double res = 0.1*GeV; // energy sensitivity (in GeV)
+  G4double res = 0.2*GeV; // energy sensitivity (in GeV)
   G4int binE  = energy/res; // energy bins number
   G4double lenXY = 10.0*cm; // half width in x and y direction
   G4double lenZ = 150.0*cm; // half length in z direction
