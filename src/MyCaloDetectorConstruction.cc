@@ -77,14 +77,17 @@ G4VPhysicalVolume* MyCaloDetectorConstruction::DefineVolumes(){
 	//Width containing 99% of the energy of a 150 GeV shower (Fernow)
         G4double caloSizeXY  = (-17.3+14.3*log(maxEnergy))*cm;
 	//Length containing 90% of the energy of a 150 GeV shower (Fernow)
-        G4double totalNucLength = (-1.26 + 1.74*log(maxEnergy));
-        G4cout << "Total radiation lengths: " << totalNucLength << G4endl;
+        G4double totalNucLength = -1.26 + 1.74*log(maxEnergy);
+        G4cout << "Needed radiation lengths: " << totalNucLength << G4endl;
 
+	//Double the gap thickness 
+	//	gapThickness *= 2;
+	
         //Width of layer of active + absorber material
         G4double layerThickness = absoThickness + gapThickness;
         //Total number of layers
-        fNofLayers = ceil(totalNucLength/layerNucLength);
-        //Total calorimeter thickness
+	fNofLayers = ceil(ceil(totalNucLength)/layerNucLength);
+	//Total calorimeter thickness
         G4double caloThickness = fNofLayers * layerThickness;
         //World transverse size
         G4double worldSizeXY = 1.1 * caloSizeXY;
