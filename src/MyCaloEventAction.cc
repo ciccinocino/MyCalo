@@ -28,7 +28,7 @@ MyCaloHitsCollection* MyCaloEventAction::GetHitsCollection(G4int hcID, const G4E
 }
 
 void MyCaloEventAction::PrintEventStatistics(G4double absoEdep, G4double absoZPos, G4double gapEdep, G4double gapZPos) const {
-  // print event statistics
+  // pPrint event statistics
   G4cout
     << "Absorber: total energy: " << std::setw(7) << G4BestUnit(absoEdep, "Energy") << G4endl
     << "                 depth: "              << std::setw(7) << G4BestUnit(absoZPos, "Length")
@@ -70,11 +70,6 @@ void MyCaloEventAction::EndOfEventAction(const G4Event* event){
   // get analysis manager
   auto analysisManager = G4AnalysisManager::Instance();
 
-  //Get position from absorber and gap
-  /*  auto absoPosZ = absoTotalHit->GetPosZ();
-      auto gapPosZ = gapTotalHit->GetPosZ();
-      auto Z = absoPosZ + gapPosZ; */
-
   // fill histograms
   G4double absoEdep = absoTotalHit->GetEdep();
   G4double gapEdep = gapTotalHit->GetEdep();
@@ -86,46 +81,13 @@ void MyCaloEventAction::EndOfEventAction(const G4Event* event){
   analysisManager->FillH1(2, gapX/gapEdep);
   analysisManager->FillH1(3, gapY/gapEdep);
   analysisManager->FillH1(4, gapZ/gapEdep);
-
-  /*
-  // for(auto gapHit : gapHC) {
-    for(int i=0; i<gapHC->entries()-1; ++i) {
-    auto gapHit = (*gapHC)[i];
-    analysisManager->FillH1(2, gapHit->GetPosX());
-    analysisManager->FillH1(3, gapHit->GetPosY());
-    analysisManager->FillH1(4, gapHit->GetPosZ());
-  }
-  // for(auto absoHit : absoHC) {
-  for(int i=0; i<absoHC->entries()-1; ++i) {
-    auto absoHit = (*absoHC)[i];
-    analysisManager->FillH1(2, absoHit->GetPosX());
-    analysisManager->FillH1(3, absoHit->GetPosY());
-    analysisManager->FillH1(4, absoHit->GetPosZ());
-    }
-  */
-	
+  
   // fill ntuple
+  // dividing by multiples of 10 to get the correct units (GeV and cm)
   analysisManager->FillNtupleDColumn(0, absoEdep/1000);
   analysisManager->FillNtupleDColumn(1, gapEdep/1000);
   analysisManager->FillNtupleDColumn(2, gapX/gapEdep/10);
   analysisManager->FillNtupleDColumn(3, gapY/gapEdep/10);
   analysisManager->FillNtupleDColumn(4, gapZ/gapEdep/10);
   analysisManager->AddNtupleRow();
-  // for(auto gapHit : gapHC) {
-  /*  for(int i=0; i<gapHC->entries()-1; ++i) {
-    auto gapHit = (*gapHC)[i];
-    analysisManager->FillNtupleDColumn(2, gapHit->GetPosX());
-    analysisManager->FillNtupleDColumn(3, gapHit->GetPosY());
-    analysisManager->FillNtupleDColumn(4, gapHit->GetPosZ());
-    analysisManager->AddNtupleRow();
-  }
-  // for(auto absoHit : absoHC) {
-  for(int i=0; i<absoHC->entries()-1; ++i) {
-    auto absoHit = (*absoHC)[i];
-    analysisManager->FillNtupleDColumn(2, absoHit->GetPosX());
-    analysisManager->FillNtupleDColumn(3, absoHit->GetPosY());
-    analysisManager->FillNtupleDColumn(4, absoHit->GetPosZ());
-    analysisManager->AddNtupleRow();
-  }
-  */
 }

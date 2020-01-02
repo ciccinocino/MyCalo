@@ -6,10 +6,10 @@
 class MyCaloActionInitialization : public G4VUserActionInitialization
 {
 public:
-MyCaloActionInitialization();
-virtual ~MyCaloActionInitialization();
-virtual void BuildForMaster() const;
-virtual void Build() const;
+  MyCaloActionInitialization();
+  virtual ~MyCaloActionInitialization();
+  virtual void BuildForMaster() const;
+  virtual void Build() const;
 };
 
 #endif

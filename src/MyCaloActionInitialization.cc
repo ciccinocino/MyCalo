@@ -10,11 +10,11 @@ MyCaloActionInitialization::~MyCaloActionInitialization(){
 }
 
 void MyCaloActionInitialization::BuildForMaster() const {
-        SetUserAction(new MyCaloRunAction);
+  SetUserAction(new MyCaloRunAction);
 }
 
 void MyCaloActionInitialization::Build() const {
-        SetUserAction(new MyCaloPrimaryGeneratorAction);
-        SetUserAction(new MyCaloRunAction);
-        SetUserAction(new MyCaloEventAction);
+  SetUserAction(new MyCaloPrimaryGeneratorAction);
+  SetUserAction(new MyCaloRunAction);
+  SetUserAction(new MyCaloEventAction);
 }

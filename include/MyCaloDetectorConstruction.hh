@@ -10,16 +10,16 @@ class G4GlobalMagFieldMessenger;
 class MyCaloDetectorConstruction : public G4VUserDetectorConstruction
 {
 public:
-MyCaloDetectorConstruction();
-virtual ~MyCaloDetectorConstruction();
-virtual G4VPhysicalVolume* Construct();
-virtual void ConstructSDandField();
+  MyCaloDetectorConstruction();
+  virtual ~MyCaloDetectorConstruction();
+  virtual G4VPhysicalVolume* Construct();
+  virtual void ConstructSDandField();
 
 private:
-void DefineMaterials();
-G4VPhysicalVolume* DefineVolumes();
-G4bool fCheckOverlaps;
-G4int fNofLayers;
+  void DefineMaterials();
+  G4VPhysicalVolume* DefineVolumes();
+  G4bool fCheckOverlaps;
+  G4int fNofLayers;
 };
 
 #endif

@@ -42,7 +42,6 @@ G4bool MyCaloSD::ProcessHits(G4Step* step, G4TouchableHistory*){
 
   // Get calorimeter cell id
   auto layerNumber = touchable->GetReplicaNumber(1);
-  //  G4cout << "LayerNumber: " << layerNumber << G4endl;
 
   // Get hit accounting data for this cell
   auto hit = (*fHitsCollection)[layerNumber];
