@@ -31,11 +31,11 @@ start the simulation with a predefined macro, with the command:
     $ ./MyCalo run.mac
 
 Available macros are:
-  - `run.mac': sample macro for testing, only few events, saves to MyCalo.root;
-  - `run1.mac': macro for 100 GeV run, 3000 events, saves to MyCalo1.root;
-  - `run2.mac': macro for 115 GeV run, 3000 events, saves to MyCalo2.root;
-  - `run3.mac': macro for 130 GeV run, 3000 events, saves to MyCalo3.root;
-  - `run4.mac': macro for 145 GeV run, 3000 events, saves to MyCalo4.root;
+  - `run.mac`: sample macro for testing, only few events, saves to MyCalo.root;
+  - `run1.mac`: macro for 100 GeV run, 3000 events, saves to MyCalo1.root;
+  - `run2.mac`: macro for 115 GeV run, 3000 events, saves to MyCalo2.root;
+  - `run3.mac`: macro for 130 GeV run, 3000 events, saves to MyCalo3.root;
+  - `run4.mac`: macro for 145 GeV run, 3000 events, saves to MyCalo4.root;
 
-The script `run_simulation.sh' runs all macros `run1.mac' to 'run4.mac'
-in sequence, saving the log with the execution time to `MyCalo{1,2,3,4}.log'
+The script `run_simulation.sh` runs all macros `run1.mac` to `run4.mac`
+in sequence, saving the log with the execution time to `MyCalo{1,2,3,4}.log`
