@@ -141,7 +141,8 @@ G4VPhysicalVolume* MyCaloDetectorConstruction::DefineVolumes(){
 	 << " + "
 	 << gapThickness/mm << "mm of " << gapMaterial->GetName() << " ] " << G4endl
 	 << "Total length: " << fNofLayers*(absoThickness/mm + gapThickness/mm) << " mm" << G4endl
-	 << "Half width: " << caloSizeXY/mm << " mm" << G4endl
+	 << "Width: " << caloSizeXY/mm << " mm" << G4endl
+	 << "Calo size: " << caloSizeXY/mm << "x"<< caloSizeXY/mm << "x" << fNofLayers*(absoThickness/mm + gapThickness/mm) << "mm" << G4endl
 	 << "World size: " << worldSizeXY/mm << "x" << worldSizeXY/mm << "x" << worldSizeZ/mm << " mm" <<G4endl
 	 << "------------------------------------------------------------" << G4endl;
 
