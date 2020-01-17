@@ -82,6 +82,7 @@ G4VPhysicalVolume* MyCaloDetectorConstruction::DefineVolumes(){
   //To double the gap thickness after fixing the number of layers
   //gapThickness *= 2;
 	
+  G4double samplingFrequency = (gapMaterial->GetDensity()*gapThickness)/(absorberMaterial->GetDensity()*absoThickness);
   //Width of layer of active + absorber material
   G4double layerThickness = absoThickness + gapThickness;
   //Total number of layers
@@ -143,6 +144,7 @@ G4VPhysicalVolume* MyCaloDetectorConstruction::DefineVolumes(){
 	 << "Total length: " << fNofLayers*(absoThickness/mm + gapThickness/mm) << " mm" << G4endl
 	 << "Width: " << caloSizeXY/mm << " mm" << G4endl
 	 << "Calo size: " << caloSizeXY/mm << "x"<< caloSizeXY/mm << "x" << fNofLayers*(absoThickness/mm + gapThickness/mm) << "mm" << G4endl
+	 << "Sampling frequency: " << samplingFrequency*100 << "%" << G4endl
 	 << "World size: " << worldSizeXY/mm << "x" << worldSizeXY/mm << "x" << worldSizeZ/mm << " mm" <<G4endl
 	 << "------------------------------------------------------------" << G4endl;
 
